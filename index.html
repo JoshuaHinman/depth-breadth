@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Depth vs. Breadth</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body>
+    <main>
+      <table>
+        <tr>
+          <th id ="depth-tab">Depth First Algortithm</th>
+          <th id="breadth-tab">Breadth First Algorithm</th>
+          <th id="new-tab">Create New Graph</th>
+        </tr>
+      </table>
+      <div id="code-window">
+        <p id="depth-function">
+          function depthFirst(node) {
+            let children = node.children;
+            highlight(node);
+
+            for (let i = 0; i < children.length; i++) {
+              depthFirst(children[i]);
+            }
+          }
+        </p>
+        <p id="breadth-function">
+          function breadthFirst(nodeArray) {
+            siblings = [];
+
+            //Top node isn't an array, so put it in an array
+            if (!Array.isArray(nodeArray)) {
+              nodeArray = [nodeArray];
+            }
+
+            nodeArray.forEach( (node) => {
+              highlight(node);
+            });
+
+            nodeArray.forEach( (node) => {
+              let children = node.children;
+              for (let i = 0; i < children.length; i++) {
+              siblings.push(children[i]);
+            });
+
+            breadthFirst(siblings);
+          )
+        </p>
+      </div>
+      <div id="node-window">
+        <canvas id="canvas" width="1280px" height="500px"></canvas>
+        <div class="tree-display" id="tree-display"></div>
+      </div>
+      <div id="text-window" style="height: 200px; width: 100%; font-size: 20px; padding: 20px 5px;   text-align: left;">
+        <p id="depth-text">This simple function shows how recursion is naturally conducive to traversing graph structures.  In this sequence, each time the recursive function is invoked, it highlights a new node.  After a node is highlighted, a loop is executed that invokes all of the node's children.  However, these child nodes are not invoked sequentially as it appears in the loop body.  Instead, each node invoked will then execute it's own loop invoking all of it's children recursively.  Following this recursive pattern, the first child node of each node is invoked, which then invokes it's own first child, all the way to the end of that branch of the graph.  This creates the 'Depth First' pattern of this process.
+        </p>
+        <p id="breadth-text">This function doesn't highlight one nod----------, but instead i-------------. After the top node is highlighted, an array of it's children is created and passed to the next recursive call.  After each new node layer is highlighted, each node's children are pushed to an array of the next layer's nodes and then passed as an argument to the next function call.
+        </p>
+      </div>
+    </main>
+  </body>
+</html>

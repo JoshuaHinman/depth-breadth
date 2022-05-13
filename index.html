@@ -53,10 +53,10 @@
         <canvas id="canvas" width="1280px" height="500px"></canvas>
         <div class="tree-display" id="tree-display"></div>
       </div>
-      <div id="text-window" style="height: 200px; width: 100%; font-size: 20px; padding: 20px 5px;   text-align: left;">
-        <p id="depth-text">This simple function shows how recursion is naturally conducive to traversing graph structures.  In this sequence, each time the recursive function is invoked, it highlights a new node.  After a node is highlighted, a loop is executed that invokes all of the node's children.  However, these child nodes are not invoked sequentially as it appears in the loop body.  Instead, each node invoked will then execute it's own loop invoking all of it's children recursively.  Following this recursive pattern, the first child node of each node is invoked, which then invokes it's own first child, all the way to the end of that branch of the graph.  This creates the 'Depth First' pattern of this process.
+      <div id="text-window">
+        <p id="depth-text">&nbsp;&nbsp;This simple function shows how recursion is naturally conducive to traversing graph structures.  In this sequence, each time the recursive function is invoked, it highlights a new node.  After a node is highlighted, a loop is executed that invokes all of the node's children.  However, these child nodes are not invoked sequentially as it appears in the loop body.  Instead, each node invoked will then execute it's own loop invoking all of it's children recursively.  Following this recursive pattern, the first child node of each node is invoked, which then invokes it's own first child, all the way to the end of that branch of the graph.  This creates the 'Depth First' pattern of this process.
         </p>
-        <p id="breadth-text">This function doesn't highlight one nod----------, but instead i-------------. After the top node is highlighted, an array of it's children is created and passed to the next recursive call.  After each new node layer is highlighted, each node's children are pushed to an array of the next layer's nodes and then passed as an argument to the next function call.
+        <p id="breadth-text">&nbsp;&nbsp;This function doesn't highlight just one node per recursive call.  Instead, it executes a loop that highlights a complete layer of nodes sequentially. Upon a node layer's completion, an array of all nodes on the next layer is created and passed to the next recursive call.  The new layer of nodes is highlighted in order, and this process is repeated until there no more layers of child nodes left to highlight.
         </p>
       </div>
     </main>

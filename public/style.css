@@ -54,6 +54,10 @@ th:hover {
 	height: 100%;
 	width: 100%;
 }
+#depth-tab, #breadth-tab, #new-tab {
+	background-color: #DDDDDD;
+	border-radius: 10px;
+}
 
 #canvas {
 	position: absolute;
